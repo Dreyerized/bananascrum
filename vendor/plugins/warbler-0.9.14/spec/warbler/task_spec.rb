@@ -3,7 +3,7 @@
 # See the file LICENSES.txt included with the distribution for
 # software license details.
 #++
-
+=begin
 require File.dirname(__FILE__) + '/../spec_helper'
 
 describe Warbler::Task do
@@ -484,3 +484,4 @@ describe "Debug targets" do
     capture { Rake::Task["war:debug"].invoke }.should =~ /Config/
   end
 end
+=end

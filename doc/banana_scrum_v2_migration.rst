@@ -54,8 +54,7 @@ Procedure steps
 
 #. Disable IP filtering in the nginx config file ``/usr/local/nginx/conf/nginx.conf`` on the new production server for the Banana Scrum application (NOT the Site Admin app).
 
-#. Setup `rinetd <http://www.boutell.com/rinetd/>`_ on the production server
-   at OVH.
+#. Setup `rinetd <http://www.boutell.com/rinetd/>`_ on the production server at OVH.
     Rinetd is a small application designed to redirect all tcp connections for
     an ip and port to a different ip and port. We'll use rinetd to redirect
     all users, accessing the old production server to the new production

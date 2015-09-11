@@ -1,3 +1,4 @@
+# encoding: UTF-8
 class SprintsController < ProjectBaseController
   include JuggernautFilters
   include SprintsHelper

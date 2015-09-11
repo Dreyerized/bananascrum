@@ -1,3 +1,4 @@
+# encoding: UTF-8
 class Item < BacklogElement
 
   INFINITY_ESTIMATE_REPRESENTATIVE = 9999.freeze

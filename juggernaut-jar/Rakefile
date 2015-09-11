@@ -24,7 +24,7 @@ namespace :java do
   desc "Compile java executable stub class"
   task :stub => :clean do 
     mkdir_p output_directory
-    sh %+javac -target 1.5 -d #{output_directory} -classpath vendor/jruby-complete-#{JRUBY_VERSION}.jar lib/LiveSyncRunner.java+
+    sh %+javac -target 1.7 -d #{output_directory} -classpath vendor/jruby-complete-#{JRUBY_VERSION}.jar lib/LiveSyncRunner.java+
   end
 
   desc "Clean all build files"

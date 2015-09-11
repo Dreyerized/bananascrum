@@ -14,9 +14,8 @@ namespace :war do
   end
 
   desc "Create documentation for compiled distribution"
-  task "doc" => ['doc:sphinx:txt', 'doc:sphinx:deployment_pdf'] do
+  task "doc" => ['doc:sphinx:txt'] do
     sh "cd #{RAILS_ROOT} && cp doc/_build/txt/deployment.txt build/README"
-    sh "cd #{RAILS_ROOT} && cp doc/deployment.pdf build/README.pdf"
   end
   desc "Create bananascrum dist package"
   task "package" => ['war:compile', 'war:doc']

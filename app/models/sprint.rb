@@ -1,3 +1,4 @@
+# encoding: UTF-8
 class Sprint < ActiveRecord::Base
   
   include DomainChecks

@@ -21,7 +21,7 @@ module Warbler
   # Warbler Rake task.  Allows defining multiple configurations inside the same
   # Rakefile by using different task names.
   class Task < Rake::TaskLib
-    COPY_PROC = proc {|t| cp t.prerequisites.last, t.name }
+    COPY_PROC = proc {|t| FileUtils.cp t.prerequisites.last, t.name }
 
     # Task name
     attr_accessor :name
@@ -108,7 +108,7 @@ module Warbler
         task "webxml" do
           mkdir_p "#{config.staging_dir}/WEB-INF"
           if File.exist?("config/web.xml")
-            cp "config/web.xml", "#{config.staging_dir}/WEB-INF"
+            FileUtils.cp "config/web.xml", "#{config.staging_dir}/WEB-INF"
           else
             erb = if File.exist?("config/web.xml.erb")
               "config/web.xml.erb"
@@ -186,8 +186,8 @@ module Warbler
         libs = define_java_libs_task
         desc "Create an exploded war in the app's public directory"
         task "exploded" => ["webxml", "java_classes", "gems", *libs] do
-          cp "#{@config.staging_dir}/WEB-INF/web.xml", "."
-          cp File.join(WARBLER_HOME, "sun-web.xml"), "." unless File.exists?("sun-web.xml")
+          FileUtils.cp "#{@config.staging_dir}/WEB-INF/web.xml", "."
+          FileUtils.cp File.join(WARBLER_HOME, "sun-web.xml"), "." unless File.exists?("sun-web.xml")
           ln_sf "#{@config.staging_dir}/WEB-INF/gems", "."
           if File.directory?("#{@config.staging_dir}/WEB-INF/classes")
             ln_sf "#{@config.staging_dir}/WEB-INF/classes", "."

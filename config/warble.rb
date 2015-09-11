@@ -18,7 +18,7 @@ Warbler::Config.new do |config|
   # config.includes = FileList["db"]
 
   # license for the current major version
-  config.includes += FileList["licenses/#{BananaScrum::Version::MAJOR}/id_rsa.pub"]
+  # config.includes += FileList["licenses/#{BananaScrum::Version::MAJOR}/id_rsa.pub"]
 
   # Additional files/directories to exclude
   # config.excludes = FileList["lib/tasks/*"]
