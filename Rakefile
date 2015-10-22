@@ -8,4 +8,7 @@ require 'rake/testtask'
 require 'rdoc/task'
 require 'tasks/rails'
 
+require 'warbler'
+Warbler::Task.new
+
 require 'rubygems'

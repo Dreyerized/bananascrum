@@ -5,7 +5,7 @@ namespace :dist do
     sh "mv juggernaut-jar/pkg/livesync.jar build/livesync"
   end
   desc "Create bananascrum dist package in build directory"
-  task "build" => ['war:package', 'dist:juggernaut', 'dist:cleanup']
+  task "build" => ['war', 'dist:cleanup']
 
   desc "Create shippable .tar.gz package"
   task "package" => ["dist:build"] do

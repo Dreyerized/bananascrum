@@ -22,9 +22,10 @@ gem  "eventmachine"
 
 gem "archive-tar-minitar", "~> 0.5.2"
 
-gem "builder", "~> 3.0.0"
-gem  "jruby-jars"
-gem  "jruby-openssl", "~> 0.7.4"
+gem  "builder", "~> 3.0.0"
+gem  "jruby-jars", "1.7.4"
+gem  "warbler" 
+gem  "jruby-openssl", "~> 0.8.8"
 gem  "trinidad", :require => false
 gem  "trinidad_daemon_extension", :require => false
 gem  "trinidad_init_services", :require => false
@@ -32,5 +33,4 @@ gem  "trinidad_init_services", :require => false
 group :development, :test do
   gem  "thoughtbot-shoulda", "~>2.10"
   gem  "mocha"
-  gem "ruby-debug"
 end

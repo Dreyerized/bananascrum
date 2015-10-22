@@ -1,0 +1,16 @@
+coverage*
+pkg
+doc
+.bundle
+nbproject
+target
+Gemfile.lock
+.idea
+warbler.iml
+warbler.iws
+warbler.ipr
+warbler-*.gem
+log
+integration/**/*.iml
+build.log
+.ruby-version

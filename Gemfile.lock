@@ -24,17 +24,19 @@ GEM
       rake (>= 10.0.0)
       sshkit (~> 1.3)
     colorize (0.7.7)
-    columnize (0.9.0)
-    eventmachine (1.0.8-java)
+    eventmachine (1.0.7)
+    eventmachine (1.0.7-java)
     highline (1.6.21)
+    hiredis (0.6.0)
     hiredis (0.6.0-java)
     i18n (0.7.0)
     icalendar (2.3.0)
     jdbc-mysql (5.1.36)
-    jruby-jars (9.0.1.0)
-    jruby-openssl (0.7.7)
-      bouncy-castle-java (>= 1.5.0146.1)
+    jruby-jars (1.7.4)
+    jruby-openssl (0.8.8)
+      bouncy-castle-java (>= 1.5.0147)
     jruby-rack (1.1.19)
+    json (1.8.3)
     json (1.8.3-java)
     juggernaut (2.1.1)
       redis
@@ -42,6 +44,7 @@ GEM
     mime-types (2.6.1)
     mocha (1.1.0)
       metaclass (~> 0.0.1)
+    msgpack (0.5.12)
     msgpack (0.5.12-java)
     net-scp (1.2.1)
       net-ssh (>= 2.6.5)
@@ -77,10 +80,7 @@ GEM
     right_aws (3.1.0)
       right_http_connection (>= 1.2.5)
     right_http_connection (1.5.0)
-    ruby-debug (0.10.4)
-      columnize (>= 0.1)
-      ruby-debug-base (~> 0.10.4.0)
-    ruby-debug-base (0.10.4-java)
+    rubyzip (1.1.7)
     sshkit (1.7.1)
       colorize (>= 0.7.0)
       net-scp (>= 1.1.2)
@@ -97,9 +97,15 @@ GEM
     trinidad_init_services (1.3.1)
       trinidad (>= 1.3.5)
     trinidad_jars (1.4.1)
+    warbler (1.4.9)
+      jruby-jars (>= 1.5.6, < 2.0)
+      jruby-rack (>= 1.1.1, < 1.3)
+      rake (>= 0.9.6)
+      rubyzip (>= 0.9, < 1.2)
 
 PLATFORMS
   java
+  ruby
 
 DEPENDENCIES
   activerecord-jdbcmysql-adapter
@@ -109,8 +115,8 @@ DEPENDENCIES
   eventmachine
   highline (~> 1.6.0)
   icalendar
-  jruby-jars
-  jruby-openssl (~> 0.7.4)
+  jruby-jars (= 1.7.4)
+  jruby-openssl (~> 0.8.8)
   juggernaut
   mime-types
   mocha
@@ -125,12 +131,12 @@ DEPENDENCIES
   rdoc
   right_aws
   right_http_connection
-  ruby-debug
   thoughtbot-paperclip
   thoughtbot-shoulda (~> 2.10)
   trinidad
   trinidad_daemon_extension
   trinidad_init_services
+  warbler
 
 BUNDLED WITH
    1.10.6
