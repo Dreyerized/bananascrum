@@ -170,11 +170,8 @@ CREATE TABLE `invoices` (
   `invoice_number` varchar(255) NOT NULL,
   `issue_date` date NOT NULL,
   `invoice_type` varchar(8) DEFAULT NULL,
-  `customer_id` int(10) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `domain_id` (`domain_id`),
-  KEY `customer_id` (`customer_id`),
-  CONSTRAINT `invoices_ibfk_2` FOREIGN KEY (`customer_id`) REFERENCES `customers` (`id`),
   CONSTRAINT `invoices_ibfk_1` FOREIGN KEY (`domain_id`) REFERENCES `domains` (`id`) ON DELETE SET NULL ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -245,7 +242,6 @@ CREATE TABLE `logs` (
   `task_id` int(10) DEFAULT NULL,
   `action` varchar(8) NOT NULL DEFAULT 'update',
   `logable_type` varchar(16) NOT NULL,
-  `task_user_id` int(10) DEFAULT NULL,
   `user_id` int(10) DEFAULT NULL,
   `created_at` datetime DEFAULT NULL,
   PRIMARY KEY (`id`),
@@ -255,12 +251,10 @@ CREATE TABLE `logs` (
   KEY `index_logs_on_action` (`action`),
   KEY `index_logs_on_logable_type` (`logable_type`),
   KEY `user_id` (`user_id`),
-  KEY `task_user_id` (`task_user_id`),
   CONSTRAINT `logs_ibfk_1` FOREIGN KEY (`domain_id`) REFERENCES `domains` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `logs_ibfk_2` FOREIGN KEY (`sprint_id`) REFERENCES `sprints` (`id`) ON DELETE SET NULL ON UPDATE SET NULL,
   CONSTRAINT `logs_ibfk_3` FOREIGN KEY (`item_id`) REFERENCES `backlog_elements` (`id`) ON DELETE SET NULL ON UPDATE SET NULL,
-  CONSTRAINT `logs_ibfk_6` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE SET NULL,
-  CONSTRAINT `logs_ibfk_7` FOREIGN KEY (`task_user_id`) REFERENCES `task_users` (`id`) ON DELETE SET NULL
+  CONSTRAINT `logs_ibfk_6` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE SET NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE `news` (
@@ -283,16 +277,13 @@ CREATE TABLE `payments` (
   `from_date` date NOT NULL,
   `to_date` date NOT NULL,
   `plan_id` int(10) DEFAULT NULL,
-  `invoice_id` int(10) DEFAULT NULL,
   `customer_id` int(10) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `plan_id` (`plan_id`),
-  KEY `invoice_id` (`invoice_id`),
   KEY `domain_id` (`domain_id`),
   KEY `customer_id` (`customer_id`),
   CONSTRAINT `payments_ibfk_5` FOREIGN KEY (`customer_id`) REFERENCES `customers` (`id`),
   CONSTRAINT `payments_ibfk_2` FOREIGN KEY (`plan_id`) REFERENCES `plans` (`id`) ON DELETE SET NULL ON UPDATE CASCADE,
-  CONSTRAINT `payments_ibfk_3` FOREIGN KEY (`invoice_id`) REFERENCES `invoices` (`id`) ON DELETE SET NULL,
   CONSTRAINT `payments_ibfk_4` FOREIGN KEY (`domain_id`) REFERENCES `domains` (`id`) ON DELETE SET NULL ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -314,7 +305,7 @@ CREATE TABLE `plan_changes` (
   CONSTRAINT `plan_changes_ibfk_6` FOREIGN KEY (`domain_id`) REFERENCES `domains` (`id`) ON DELETE SET NULL ON UPDATE CASCADE,
   CONSTRAINT `plan_changes_ibfk_2` FOREIGN KEY (`old_plan_id`) REFERENCES `plans` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `plan_changes_ibfk_3` FOREIGN KEY (`new_plan_id`) REFERENCES `plans` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `plan_changes_ibfk_4` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE,
+  CONSTRAINT `plan_changes_ibfk_4` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE SET NULL,
   CONSTRAINT `plan_changes_ibfk_5` FOREIGN KEY (`customer_id`) REFERENCES `customers` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 

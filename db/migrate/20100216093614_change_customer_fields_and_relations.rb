@@ -1,15 +1,5 @@
 class ChangeCustomerFieldsAndRelations < ActiveRecord::Migration
   def self.up
-    foreign_keys(:invoices).each do |fk|
-      remove_foreign_key :invoices, fk.name.to_sym if fk.references_table_name == 'customers'
-    end
-    remove_column :invoices, :customer_id
-    
-    foreign_keys(:payments).each do |fk|
-      remove_foreign_key :payments, fk.name.to_sym if [ 'invoices' ].include?(fk.references_table_name)
-    end
-    remove_column :payments, :invoice_id
-    
     execute("DELETE FROM invoices")
     add_column :invoices, :payment_id, :integer, :null => false
     add_foreign_key :invoices, :payment_id, :payments, :id
