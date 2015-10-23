@@ -561,3 +561,9 @@ CREATE TABLE `plan_news` (
   `created_at` datetime,
   `updated_at` datetime
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+CREATE TABLE `eur_rates` (
+  `id` int(11) DEFAULT NULL auto_increment PRIMARY KEY,
+  `rate` decimal(6,4) NOT NULL,
+  `publish_date` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
