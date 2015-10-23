@@ -19,7 +19,7 @@ gem  "juggernaut"
 gem  "ohm"
 gem  "thoughtbot-paperclip"
 gem  "eventmachine"
-
+gem  "RedCloth"
 gem "archive-tar-minitar", "~> 0.5.2"
 
 gem  "builder", "~> 3.0.0"
