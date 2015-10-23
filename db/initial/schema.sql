@@ -36,7 +36,7 @@ CREATE TABLE `clips` (
   KEY `domain_id` (`domain_id`),
   KEY `backlog_item_id` (`item_id`),
   CONSTRAINT `clips_ibfk_2` FOREIGN KEY (`item_id`) REFERENCES `backlog_elements` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `clips_ibfk_1` FOREIGN KEY (`domain_id`) REFERENCES `domains` (`id`)
+  CONSTRAINT `clips_ibfk_1` FOREIGN KEY (`domain_id`) REFERENCES `domains` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE `comments` (
