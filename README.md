@@ -6,12 +6,10 @@
 	  add 'export SSL_CERT_FILE=/etc/java-6-openjdk/' to the end of file
 	. .profile
 
-# Install mysql #
+# Install mysql with user and database #
 	sudo apt-get install mysql-server
 	  root password: <pick a secure password>
-* login to mysql
 	mysql -u root -p '<password_from_above>'
-* create bananascrum user and database:
 	CREATE USER 'bananascrum'@'localhost' IDENTIFIED BY '<pick a secure password>';
 	CREATE DATABASE bananascrum DEFAULT CHARACTER SET utf8;
 	GRANT ALL ON bananascrum.* TO 'bananascrum'@'localhost';
@@ -73,14 +71,14 @@
 # Deploying WAR file to Glassfish #
 	asadmin deploy ~/bananascrum/build/bananascrum.war
 
-# Manually create the dqm admin account #
-* Make a salt & hash your password
+# Get password and salt for new admin account #
 	jruby -S irb
 	  require 'digest/sha1'
 	  password = 'yourpassword'
 	  salt = self.object_id.to_s + rand.to_s
 	  Digest::SHA1.hexdigest(password + "adirockscs" + salt)
-  * Connect to your mysql instance and run this query (filling in the needed information)
+	  
+# Run query to add admin account #
 	INSERT INTO users (
 	 `id`,
 	 `login`,
