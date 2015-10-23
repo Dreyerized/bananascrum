@@ -553,3 +553,11 @@ CREATE TABLE `paypal_ipn_logs` (
   CONSTRAINT `paypal_ipn_logs_ibfk_1` FOREIGN KEY (`domain_id`) REFERENCES `domains` (`id`) ON DELETE SET NULL,
   CONSTRAINT `paypal_ipn_logs_ibfk_2` FOREIGN KEY (`payment_id`) REFERENCES `payments` (`id`) ON DELETE SET NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+CREATE TABLE `plan_news` (
+  `id` int(11) DEFAULT NULL auto_increment PRIMARY KEY,
+  `plan_id` int(11) NOT NULL,
+  `news_id` int(11) NOT NULL,
+  `created_at` datetime,
+  `updated_at` datetime
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
