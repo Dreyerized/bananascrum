@@ -295,18 +295,15 @@ CREATE TABLE `plan_changes` (
   `user_id` int(10) DEFAULT NULL,
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL,
-  `customer_id` int(10) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `domain_id` (`domain_id`),
   KEY `old_plan_id` (`old_plan_id`),
   KEY `new_plan_id` (`new_plan_id`),
   KEY `user_id` (`user_id`),
-  KEY `customer_id` (`customer_id`),
   CONSTRAINT `plan_changes_ibfk_6` FOREIGN KEY (`domain_id`) REFERENCES `domains` (`id`) ON DELETE SET NULL ON UPDATE CASCADE,
   CONSTRAINT `plan_changes_ibfk_2` FOREIGN KEY (`old_plan_id`) REFERENCES `plans` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `plan_changes_ibfk_3` FOREIGN KEY (`new_plan_id`) REFERENCES `plans` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `plan_changes_ibfk_4` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE SET NULL,
-  CONSTRAINT `plan_changes_ibfk_5` FOREIGN KEY (`customer_id`) REFERENCES `customers` (`id`)
+  CONSTRAINT `plan_changes_ibfk_4` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE SET NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE `plans` (
