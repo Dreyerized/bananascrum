@@ -36,6 +36,8 @@ class ApplicationController < ActionController::Base
   end
   
   def juggernaut_broadcast
+    # disabling juggernaut for now
+    return true
     return if error?
     return if request.get?
     envelope = nil
