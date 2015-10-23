@@ -31,7 +31,7 @@ GEM
     hiredis (0.6.0-java)
     i18n (0.7.0)
     icalendar (2.3.0)
-    jdbc-mysql (5.1.36)
+    jdbc-mysql (5.1.35)
     jruby-jars (1.7.4)
     jruby-openssl (0.8.8)
       bouncy-castle-java (>= 1.5.0147)
