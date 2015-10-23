@@ -2,7 +2,7 @@ class ChangeCustomerFieldsAndRelations < ActiveRecord::Migration
   def self.up
     execute("DELETE FROM invoices")
     add_column :invoices, :payment_id, :integer, :null => false
-    add_foreign_key :invoices, :payment_id, :payments, :id
+    add_foreign_key(:invoices, :payment_id, :payments, :id)
     
     add_column :customers, :mobile_phone, :boolean
     change_column :customers, :company_name, :string, :null => false
