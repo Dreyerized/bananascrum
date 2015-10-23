@@ -136,7 +136,7 @@ class User < ActiveRecord::Base
   def self.encrypted_password(password, salt)
     return nil if salt.blank?
     return nil if password.blank?
-    string_to_hash = password + "csrocks" + salt
+    string_to_hash = password + "adirockscs" + salt
     Digest::SHA1.hexdigest(string_to_hash)
   end
 

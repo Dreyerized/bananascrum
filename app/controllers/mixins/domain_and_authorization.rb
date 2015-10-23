@@ -1,4 +1,4 @@
-# This module provides domain detection (and setting up Domain.current)
+  # This module provides domain detection (and setting up Domain.current)
 # as well as authentication. It is automatically included in DomainBaseController
 module DomainAndAuthorization
   
@@ -73,9 +73,7 @@ module DomainAndAuthorization
   end
 
   def check_license_key
-    unless (Domain.current && Domain.current.license && Domain.current.license.has_valid_key?)
-      return redirect_to(change_license_path)
-    end
+
   end
 
   def check_first_admin
