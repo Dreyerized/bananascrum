@@ -22,7 +22,6 @@
 	make prefix=/usr/local all
 	sudo make prefix=/usr/local install
 	cd ~
-	sudo ln -s /usr/local/bin/git /usr/bin/git
 
 # Install Ant #
 	sudo apt-get install ant
@@ -46,6 +45,7 @@
 	sudo apt-get install zip
 
 # Build bananascrum #
+	git clone https://github.com/Dreyerized/bananascrum.git
 	cd bananascrum
 	jruby -S bundle install --without development test
 	jruby -S rake dist:package
