@@ -9,7 +9,7 @@
 ## Install mysql with user and database ##
 	sudo apt-get install mysql-server
 	  root password: <pick a secure password>
-	mysql -u root -p '<password_from_above>'
+	mysql -u root -password='<password_from_above>'
 	CREATE USER 'bananascrum'@'localhost' IDENTIFIED BY '<pick a secure password>';
 	CREATE DATABASE bananascrum DEFAULT CHARACTER SET utf8;
 	GRANT ALL ON bananascrum.* TO 'bananascrum'@'localhost';
