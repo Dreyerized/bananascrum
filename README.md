@@ -1,10 +1,10 @@
-# Directions for setting up on a new install of Debian 5 #
+# Directions for setting up on a new install of Debian 5 (Lenny) or 7 (Wheezy) #
 
 # Install JDK 6 #
 	sudo apt-get install open-jdk-6-jdk
-	vim .profile
-	  add 'export SSL_CERT_FILE=/etc/java-6-openjdk/' to the end of file
-	. .profile
+	sudo vim /etc/environment (not needed if using Debian 7)
+	  add 'SSL_CERT_FILE=/etc/java-6-openjdk/security/cacerts' to the end of file
+	. /etc/environment
 
 # Install mysql with user and database #
 	sudo apt-get install mysql-server
@@ -63,9 +63,9 @@
 	wget http://download.java.net/glassfish/3.1.2.2/release/glassfish-3.1.2.2.zip
 	unzip glassfish-3.1.2.2.zip
 	sudo mv glassfish3 /opt/glassfish3
-	vim .profile
-	  add 'export PATH=/opt/glassfish3/bin:$PATH' to the end of file
-	. .profile
+	sudo vim /etc/environment
+	  add 'PATH=/opt/glassfish3/bin:$PATH' to the end of file
+	. /etc/environment
 	asadmin start-domain
 
 # Deploying WAR file to Glassfish #
