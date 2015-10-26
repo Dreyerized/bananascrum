@@ -63,15 +63,15 @@
 	wget http://download.java.net/glassfish/3.1.2.2/release/glassfish-3.1.2.2.zip
 	unzip glassfish-3.1.2.2.zip
 	sudo mv glassfish3 /opt/glassfish3
-	/opt/glasshfish3/bin/asadmin start-domain
-	/opt/glasshfish3/bin/asadmin change-admin-password (username is admin password is blank)
-	/opt/glasshfish3/bin/asadmin enable-secure-admin
+	/opt/glassfish3/bin/asadmin start-domain
+	/opt/glassfish3/bin/asadmin change-admin-password (username is admin password is blank)
+	/opt/glassfish3/bin/asadmin enable-secure-admin
 	/opt/glassfish3/bin/asadmin create-service
 * Point browser to admin interface (http://your.server.ip.addr:4848)
 * Expand Configurations -> server-config -> Network Config -> Network Listeners
 * Choose http-listener-1
 * Change Port to 80 and click Save
-* Restart glassfish (sudo /opt/glasshfish3/bin/asadmin restart-domain)
+* Restart glassfish (sudo /opt/glassfish3/bin/asadmin restart-domain)
 
 ## Deploying WAR file to Glassfish ##
 	asadmin deploy --contextroot "/" ~/bananascrum/build/bananascrum.war
