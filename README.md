@@ -1,4 +1,4 @@
-# Directions for setting up on a new install of Debian 5 (Lenny) or 7 (Wheezy) #
+# Installation on Debian 5 (Lenny) or 7 (Wheezy) #
 
 # Install JDK 6 #
 	sudo apt-get install open-jdk-6-jdk
