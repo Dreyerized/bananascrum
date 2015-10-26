@@ -1,12 +1,12 @@
 # Installation on Debian 5 (Lenny) or 7 (Wheezy) #
 
-# Install JDK 6 #
+## Install JDK 6 ##
 	sudo apt-get install open-jdk-6-jdk
 	sudo vim /etc/environment (not needed if using Debian 7)
 	  add 'SSL_CERT_FILE=/etc/java-6-openjdk/security/cacerts' to the end of file
 	. /etc/environment
 
-# Install mysql with user and database #
+## Install mysql with user and database ##
 	sudo apt-get install mysql-server
 	  root password: <pick a secure password>
 	mysql -u root -p '<password_from_above>'
@@ -14,7 +14,7 @@
 	CREATE DATABASE bananascrum DEFAULT CHARACTER SET utf8;
 	GRANT ALL ON bananascrum.* TO 'bananascrum'@'localhost';
 
-# Install git (if needed) #
+## Install git (if needed) ##
 	sudo apt-get install libcurl4-gnutls-dev libexpat1-dev gettext libz-dev libssl-dev build-essential
 	wget https://github.com/git/git/archive/v2.6.2.tar.gz
 	tar -zxf v2.6.2.tar.gz
@@ -23,28 +23,28 @@
 	sudo make prefix=/usr/local install
 	cd ~
 
-# Install Ant #
+## Install Ant ##
 	sudo apt-get install ant
 
-# Install memcached #
+## Install memcached ##
 	sudo apt-get install memcached
 
-# Install jruby 1.7.4 #
+## Install jruby 1.7.4 ##
 	wget https://s3.amazonaws.com/jruby.org/downloads/1.7.4/jruby-bin-1.7.4.tar.gz
 	tar -zxf jruby-bin-1.7.4.tar.gz
 	sudo mv jruby-1.7.4/ /usr/lib/jruby
 	sudo ln -s /usr/lib/jruby/bin/jruby /usr/bin/jruby
 	sudo ln -s /usr/lib/jruby/bin/jrubyc /usr/bin/jrubyc
 
-# Install required gems #
+## Install required gems ##
 	jruby -S gem install rake
 	jruby -S gem install bundle --no-ri --no-rdoc
 
-# Install other required software #
+## Install other required software ##
 	sudo apt-get install python-sphinx
 	sudo apt-get install zip
 
-# Build bananascrum #
+## Build bananascrum ##
 	git clone https://github.com/Dreyerized/bananascrum.git
 	cd bananascrum
 	jruby -S bundle install --without development test
@@ -59,7 +59,7 @@
 	ant
 	cd ~
 
-# Install Glassfish 3 #
+## Install Glassfish 3 ##
 	wget http://download.java.net/glassfish/3.1.2.2/release/glassfish-3.1.2.2.zip
 	unzip glassfish-3.1.2.2.zip
 	sudo mv glassfish3 /opt/glassfish3
@@ -68,17 +68,22 @@
 	. /etc/environment
 	asadmin start-domain
 
-# Deploying WAR file to Glassfish #
+## Deploying WAR file to Glassfish ##
 	asadmin deploy ~/bananascrum/build/bananascrum.war
 
-# Get password and salt for new admin account (may not be needed -- try visiting website to see if it will let you create an account) #
+## Visit deployed website ##
+* http://your.server.ip.address:8080/bananascrum
+* If the page loads and allows you to create an admin account, you are all done!
+* If the page shows an error, follow the next two steps.
+
+## Get password and salt for new admin account ##
 	jruby -S irb
 	  require 'digest/sha1'
 	  password = 'yourpassword'
 	  salt = self.object_id.to_s + rand.to_s
 	  Digest::SHA1.hexdigest(password + "adirockscs" + salt)
 	  
-# Run query to add admin account (again may not be needed) #
+## Run query to add admin account ##
 	INSERT INTO users (
 	 `id`,
 	 `login`,
