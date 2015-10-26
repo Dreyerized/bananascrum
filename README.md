@@ -63,16 +63,20 @@
 	wget http://download.java.net/glassfish/3.1.2.2/release/glassfish-3.1.2.2.zip
 	unzip glassfish-3.1.2.2.zip
 	sudo mv glassfish3 /opt/glassfish3
-	sudo vim /etc/environment
-	  add 'PATH=/opt/glassfish3/bin:$PATH' to the end of file
-	. /etc/environment
-	asadmin start-domain
+	/opt/glasshfish3/bin/asadmin start-domain
+	/opt/glasshfish3/bin/asadmin change-admin-password (username is admin password is blank)
+	/opt/glasshfish3/bin/asadmin enable-secure-admin
+* Point browser to admin interface (http://your.server.ip.addr:4848)
+* Expand Configurations -> server-config -> Network Config -> Network Listeners
+* Choose http-listener-1
+* Change Port to 80 and click Save
+* Restart glassfish (sudo /opt/glasshfish3/bin/asadmin restart-domain)
 
 ## Deploying WAR file to Glassfish ##
-	asadmin deploy ~/bananascrum/build/bananascrum.war
+	asadmin deploy --contextroot "/" ~/bananascrum/build/bananascrum.war
 
 ## Visit deployed website ##
-* http://your.server.ip.address:8080/bananascrum
+* http://your.server.ip.address/
 * If the page loads and allows you to create an admin account, you are all done!
 * If the page shows an error, follow the next two steps.
 
