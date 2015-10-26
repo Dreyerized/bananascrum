@@ -66,6 +66,7 @@
 	/opt/glasshfish3/bin/asadmin start-domain
 	/opt/glasshfish3/bin/asadmin change-admin-password (username is admin password is blank)
 	/opt/glasshfish3/bin/asadmin enable-secure-admin
+	/opt/glassfish3/bin/asadmin create-service
 * Point browser to admin interface (http://your.server.ip.addr:4848)
 * Expand Configurations -> server-config -> Network Config -> Network Listeners
 * Choose http-listener-1
