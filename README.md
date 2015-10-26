@@ -49,7 +49,7 @@
 	cd bananascrum
 	jruby -S bundle install --without development test
 	jruby -S rake dist:package
-	cd bananascrum/build
+	cd build
 	cp config.yml.sample config.yml
 	cp database.yml.sample database.yml
 	cp livesync_hosts.yml.sample livesync_hosts.yml
