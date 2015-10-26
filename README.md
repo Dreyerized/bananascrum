@@ -71,14 +71,14 @@
 # Deploying WAR file to Glassfish #
 	asadmin deploy ~/bananascrum/build/bananascrum.war
 
-# Get password and salt for new admin account #
+# Get password and salt for new admin account (may not be needed -- try visiting website to see if it will let you create an account) #
 	jruby -S irb
 	  require 'digest/sha1'
 	  password = 'yourpassword'
 	  salt = self.object_id.to_s + rand.to_s
 	  Digest::SHA1.hexdigest(password + "adirockscs" + salt)
 	  
-# Run query to add admin account #
+# Run query to add admin account (again may not be needed) #
 	INSERT INTO users (
 	 `id`,
 	 `login`,
