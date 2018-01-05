@@ -67,7 +67,8 @@
 	/opt/glassfish3/bin/asadmin change-admin-password (username is admin password is blank)
 	/opt/glassfish3/bin/asadmin enable-secure-admin
 	/opt/glassfish3/bin/asadmin create-service
-* Point browser to admin interface (http://your.server.ip.addr:4848)
+* Restart the service
+* Point browser to admin interface (https://your.server.ip.addr:4848)
 * Expand Configurations -> server-config -> Network Config -> Network Listeners
 * Choose http-listener-1
 * Change Port to 80 and click Save
