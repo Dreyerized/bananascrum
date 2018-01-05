@@ -38,7 +38,7 @@
 
 ## Install required gems ##
 	jruby -S gem install rake -v 10.4.2
-	jruby -S gem install bundle -v 1.10.6 --no-ri --no-rdoc
+	jruby -S gem install bundle --no-ri --no-rdoc
 
 ## Install other required software ##
 	sudo apt-get install python-sphinx
