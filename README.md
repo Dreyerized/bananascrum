@@ -29,7 +29,7 @@
 ## Install memcached ##
 	sudo apt-get install memcached
 
-## Install jruby 1.7.4 ##
+## Install jruby 1.7.4 (link now appears to be dead) ##
 	wget https://s3.amazonaws.com/jruby.org/downloads/1.7.4/jruby-bin-1.7.4.tar.gz
 	tar -zxf jruby-bin-1.7.4.tar.gz
 	sudo mv jruby-1.7.4/ /usr/lib/jruby
@@ -37,7 +37,7 @@
 	sudo ln -s /usr/lib/jruby/bin/jrubyc /usr/bin/jrubyc
 
 ## Install required gems ##
-	jruby -S gem install rake
+	jruby -S gem install rake -v 10.4.2
 	jruby -S gem install bundle --no-ri --no-rdoc
 
 ## Install other required software ##
