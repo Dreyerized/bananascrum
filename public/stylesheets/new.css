@@ -2386,7 +2386,8 @@ img.drop-arrow {
 }
 
 .item-description-text .text-wrapper {
-  width: 80%;
+  width: 100%;
+  overflow-x: scroll;
 }
 
 .item-estimate select {
